@@ -1,6 +1,8 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
+console.log(galleryItems);
+
 const picTemplate = ({ preview, original, description }) => `
 <div class="gallery__item">
     <img
