@@ -1,27 +1,28 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
-
-const picTemplate = () => `
+const picTemplate = ({ preview, original, description }) => `
 <div class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
+  <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
-      src="small-image.jpg"
-      data-source="large-image.jpg"
-      alt="Image description"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
     />
   </a>
 </div>
 `;
 
 const refs = {
-  picList: document.querySelector("body"),
+  picList: document.querySelector(".gallery"),
 };
 
 const render = () => {
-  const list = galleryItems.map((item) => picTemplate(item).join());
-  refs.picList.innerHTML = "";
-  refs.picList.insertAdjacentHTML("beforeend', list);
+  const list = galleryItems.map((item) => picTemplate(item)).join("");
+
+  // refs.picList.innerHTML = "";
+  refs.picList.insertAdjacentHTML("beforeend", list);
 };
+
+render();
