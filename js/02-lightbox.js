@@ -5,12 +5,9 @@ console.log(galleryItems);
 
 const picTemplate = ({ preview, original, description }) => `
 <div class="gallery__item">
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
+<a class="gallery__item" href="large-image.jpg">
+  <img class="gallery__image" src="small-image.jpg" alt="Image description" />
+</a>
 </div>
 `;
 
