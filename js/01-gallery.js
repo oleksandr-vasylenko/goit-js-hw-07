@@ -19,7 +19,6 @@ const refs = {
 const render = () => {
   const list = galleryItems.map((item) => picTemplate(item)).join("");
 
-  refs.picList.innerHTML = "";
   refs.picList.insertAdjacentHTML("beforeend", list);
 };
 
@@ -27,6 +26,7 @@ render();
 
 const onImageClick = (e) => {
   e.preventDefault();
+
   if (e.target === e.currentTarget) return;
 
   const instance = basicLightbox.create(`
@@ -36,4 +36,11 @@ const onImageClick = (e) => {
   instance.show();
 };
 
+const onEscape = (e) => {
+  if (e.code === "Escape") {
+    console.log("need to figure out how to close with Escape");
+  }
+};
+
 refs.picList.addEventListener("click", onImageClick);
+document.addEventListener("keydown", onEscape);
