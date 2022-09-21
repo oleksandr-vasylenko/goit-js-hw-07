@@ -34,11 +34,11 @@ const render = () => {
 render();
 
 const onImageClick = (e) => {
-  // if (e.target === e.currentTarget) return;
+  if (e.target === e.currentTarget) return;
 
   console.log(e);
   console.log(e.target);
-  console.log(e.currentTarge);
+  console.log(e.currentTarget);
 
   const instance = basicLightbox.create(`
     <div class="modal">
@@ -47,7 +47,7 @@ const onImageClick = (e) => {
             Yes, it's really that simple.
         </p>
     </div>
-`);
+  `);
 
   instance.show();
 };
