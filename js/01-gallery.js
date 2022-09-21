@@ -36,11 +36,11 @@ const onImageClick = (e) => {
   instance.show();
 };
 
-const onEscape = (e) => {
-  if (e.code === "Escape") {
-    console.log("need to figure out how to close with Escape");
-  }
-};
+// const onEscape = (e) => {
+//   if (e.code === "Escape") {
+//     console.log("need to figure out how to close with Escape");
+//   }
+// };
 
 refs.picList.addEventListener("click", onImageClick);
-document.addEventListener("keydown", onEscape);
+// document.addEventListener("keydown", onEscape);
