@@ -1,7 +1,6 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 
-// console.log(galleryItems);
+// Change code below this line
 
 const picTemplate = ({ preview, original, description }) => `
 <div class="gallery__item">
@@ -44,6 +43,7 @@ const modalActions = (e) => {
   instance.show();
 
   document.addEventListener("keydown", onEscape);
+
   function onEscape(e) {
     if (e.code === "Escape") {
       instance.close();
