@@ -1,7 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
+// console.log(galleryItems);
 
 const picTemplate = ({ preview, original, description }) => `
 <div class="gallery__item">
@@ -33,18 +33,22 @@ const onImageClick = (e) => {
 
   if (e.target === e.currentTarget) return;
 
+  modalActions(e);
+};
+
+const modalActions = (e) => {
   const instance = basicLightbox.create(`
       <img src="${e.target.dataset.source}" width="800" height="600">
   `);
 
   instance.show();
+
+  document.addEventListener("keydown", onEscape);
+  function onEscape(e) {
+    if (e.code === "Escape") {
+      instance.close();
+    }
+  }
 };
 
-// const onEscape = (e) => {
-//   if (e.code === "Escape") {
-//     console.log("need to figure out how to close with Escape");
-//   }
-// };
-
 refs.picList.addEventListener("click", onImageClick);
-// document.addEventListener("keydown", onEscape);
