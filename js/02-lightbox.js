@@ -1,23 +1,21 @@
 import { galleryItems } from "./gallery-items.js";
+
 // Change code below this line
 
-console.log(galleryItems);
-
 const picTemplate = ({ preview, original, description }) => `
-<div class="gallery__item">
-<a class="gallery__item" href="large-image.jpg">
-  <img class="gallery__image" src="small-image.jpg" alt="Image description" />
-</a>
-</div>
+<li>
+    <a class="gallery__item" href="${original}">
+        <img class="gallery__image" src="${preview}" alt="${description}" title="${description}" />
+    </a>
+</li>
 `;
 
 const refs = {
-  picList: document.querySelector("div.gallery"),
+  picList: document.querySelector(".gallery"),
 };
 
 const render = () => {
   const list = galleryItems.map((item) => picTemplate(item)).join("");
-
   refs.picList.insertAdjacentHTML("beforeend", list);
 };
 
@@ -25,14 +23,9 @@ render();
 
 const onImageClick = (e) => {
   e.preventDefault();
-
   if (e.target === e.currentTarget) return;
 
-  const instance = basicLightbox.create(`
-      <img src="${e.target.dataset.source}" width="800" height="600">
-  `);
-
-  instance.show();
+  var lightbox = new SimpleLightbox(".gallery a", { captionDelay: 250 });
 };
 
 refs.picList.addEventListener("click", onImageClick);
