@@ -2,7 +2,7 @@ import { galleryItems } from "./gallery-items.js";
 
 // Change code below this line
 
-const picTemplate = ({ preview, original, description }) => `
+const getImageTemplate = ({ preview, original, description }) => `
 <div class="gallery__item">
   <a class="gallery__link" href="${original}">
     <img
@@ -20,7 +20,7 @@ const refs = {
 };
 
 const render = () => {
-  const list = galleryItems.map((item) => picTemplate(item)).join("");
+  const list = galleryItems.map((item) => getImageTemplate(item)).join("");
 
   refs.picList.insertAdjacentHTML("beforeend", list);
 };
@@ -47,6 +47,7 @@ const modalActions = (e) => {
   function onEscape(e) {
     if (e.code === "Escape") {
       instance.close();
+      document.removeEventListener("keydown", onEscape);
     }
   }
 };

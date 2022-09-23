@@ -2,7 +2,7 @@ import { galleryItems } from "./gallery-items.js";
 
 // Change code below this line
 
-const imgTemplate = ({ preview, original, description }) => `
+const getImageTemplate = ({ preview, original, description }) => `
 <li class="gallery__item">
     <a class="gallery__link" href="${original}">
         <img class="gallery__image" src="${preview}" alt="${description}"/>
@@ -15,7 +15,7 @@ const refs = {
 };
 
 const render = () => {
-  const list = galleryItems.map((item) => imgTemplate(item)).join("");
+  const list = galleryItems.map((item) => getImageTemplate(item)).join("");
   refs.picList.insertAdjacentHTML("beforeend", list);
 };
 render();
